@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the Number Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            padding: 5px;
+        }
+        input[type="submit"] {
+            padding: 5px 15px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess the Number Game</h1>
+    <p>Guess a number between 1 and 100:</p>
+    <input type="text" id="guessField">
+    <input type="submit" value="Submit Guess" id="guessSubmit">
+    <p class="message"></p>
+
+    <script>
+        // Generate a random number between 1 and 100
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+
+        // Select elements from the HTML
+        const guessField = document.getElementById('guessField');
+        const guessSubmit = document.getElementById('guessSubmit');
+        const message = document.querySelector('.message');
+
+        // Function to handle the user's guess
+        guessSubmit.addEventListener('click', checkGuess);
+
+        function checkGuess() {
+            const userGuess = parseInt(guessField.value);
+
+            if (userGuess === randomNumber) {
+                message.textContent = `Congratulations! You guessed the correct number!`;
+                message.style.color = 'green';
+                guessField.disabled = true;
+                guessSubmit.disabled = true;
+            } else if (userGuess < randomNumber) {
+                message.textContent = 'Try a higher number.';
+                message.style.color = 'red';
+            } else {
+                message.textContent = 'Try a lower number.';
+                message.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>

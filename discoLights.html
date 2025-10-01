@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disco Lights Party</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            animation: colorChange 1s linear infinite;
+        }
+
+        @keyframes colorChange {
+            0% { background: #ff0000; }
+            10% { background: #ff6600; }
+            20% { background: #ffff00; }
+            30% { background: #00ff00; }
+            40% { background: #00aaff; }
+            50% { background: #0000ff; }
+            60% { background: #9900ff; }
+            70% { background: #ff00ff; }
+            80% { background: #00ffff; }
+            90% { background: #ff3399; }
+            100% { background: #ff0000; }
+        }
+
+        .disco-light {
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+            position: absolute;
+            animation: lightAnimation 0.1s linear infinite;
+        }
+
+        @keyframes lightAnimation {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        const lights = document.querySelectorAll(".disco-light");
+
+        function changeLightColors() {
+            lights.forEach(light => {
+                light.style.background = getRandomColor();
+            });
+        }
+
+        setInterval(changeLightColors, 100); // Change colors every 100ms
+    </script>
+    <div class="disco-light"></div>
+</body>
+</html>

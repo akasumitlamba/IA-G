@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Laptop Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="info">
+        <h1>User Laptop Information</h1>
+        <p><strong>Browser User Agent:</strong> <span id="userAgent"></span></p>
+        <p><strong>Operating System:</strong> <span id="osInfo"></span></p>
+        <p><strong>Screen Resolution:</strong> <span id="screenResolution"></span></p>
+        <p><strong>CPU Cores:</strong> <span id="cpuCores"></span></p>
+        <p><strong>Total RAM:</strong> <span id="totalRAM"></span></p>
+    </div>
+
+    <script>
+        // Get user agent and OS information
+        document.getElementById('userAgent').textContent = navigator.userAgent;
+        document.getElementById('osInfo').textContent = navigator.platform;
+
+        // Get screen resolution
+        const screenWidth = window.screen.width;
+        const screenHeight = window.screen.height;
+        document.getElementById('screenResolution').textContent = `${screenWidth}x${screenHeight}`;
+
+        // Get CPU core information
+        const navigatorHardwareConcurrency = navigator.hardwareConcurrency || 'N/A';
+        document.getElementById('cpuCores').textContent = navigatorHardwareConcurrency;
+
+        // Get total RAM (only available in some browsers)
+        if (navigator.deviceMemory) {
+            document.getElementById('totalRAM').textContent = `${navigator.deviceMemory} GB`;
+        } else {
+            document.getElementById('totalRAM').textContent = 'N/A';
+        }
+    </script>
+</body>
+</html>

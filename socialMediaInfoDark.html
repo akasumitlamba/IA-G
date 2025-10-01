@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Handles</title>
+
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Inline CSS for styling -->
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-top: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .social-icon {
+            font-size: 24px;
+            color: #007BFF;
+            margin-right: 10px;
+        }
+
+        /* Adjust the colors for the dark theme */
+        .form-group label {
+            color: #fff;
+        }
+
+        .form-control {
+            background-color: #444;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Social Media Handles</h2>
+        <form>
+            <div class="form-group">
+                <label for="facebook"><i class="fab fa-facebook social-icon"></i> Facebook</label>
+                <input type="url" class="form-control" id="facebook" placeholder="Enter your Facebook profile link">
+            </div>
+            <div class="form-group">
+                <label for="twitter"><i class="fab fa-twitter social-icon"></i> Twitter</label>
+                <input type="url" class="form-control" id="twitter" placeholder="Enter your Twitter profile link">
+            </div>
+            <div class="form-group">
+                <label for="linkedin"><i class="fab fa-linkedin social-icon"></i> LinkedIn</label>
+                <input type="url" class="form-control" id="linkedin" placeholder="Enter your LinkedIn profile link">
+            </div>
+            <div class="form-group">
+                <label for="instagram"><i class="fab fa-instagram social-icon"></i> Instagram</label>
+                <input type="url" class="form-control" id="instagram" placeholder="Enter your Instagram profile link">
+            </div>
+            <div class="form-group">
+                <label for="github"><i class="fab fa-github social-icon"></i> GitHub</label>
+                <input type="url" class="form-control" id="github" placeholder="Enter your GitHub profile link">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <!-- Add Bootstrap JS and Font Awesome Icons (optional) -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

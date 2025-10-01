@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #000; /* Initial background color of the page */
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  button {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    animation: bounce 5s infinite;
+    background-color: #ff5733; /* Initial background color of the button */
+  }
+
+  .diagonal-button {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    animation: diagonal-bounce 5s infinite;
+    background-color: #33ff57; /* Initial background color of the diagonal button */
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translate(0, 0);
+      background-color: #ff5733;
+    }
+    25% {
+      transform: translate(calc(100vw - 100px), 0);
+      background-color: #33ff57;
+    }
+    50% {
+      transform: translate(calc(100vw - 100px), calc(100vh - 50px));
+      background-color: #5733ff;
+    }
+    75% {
+      transform: translate(0, calc(100vh - 50px));
+      background-color: #ff5733;
+    }
+  }
+
+  @keyframes diagonal-bounce {
+    0%, 100% {
+      transform: translate(0, 0);
+      background-color: #33ff57;
+    }
+    25% {
+      transform: translate(calc(100vw - 100px), calc(100vh - 50px));
+      background-color: #ff5733;
+    }
+    50% {
+      transform: translate(0, 0);
+      background-color: #5733ff;
+    }
+    75% {
+      transform: translate(calc(100vw - 100px), calc(100vh - 50px));
+      background-color: #33ff57;
+    }
+  }
+
+</style>
+</head>
+<body>
+  <div class="container">
+    <button id="bounceButton">not DVD button!</button>
+    <button class="diagonal-button">Diagonal</button>
+  </div>
+  <script>
+    const button = document.getElementById('bounceButton');
+    const diagonalButton = document.querySelector('.diagonal-button');
+
+    button.addEventListener('mouseenter', () => {
+      // Reverse the animation direction
+      button.style.animationDirection = "reverse";
+    });
+
+    button.addEventListener('mouseleave', () => {
+      // Reset the animation direction
+      button.style.animationDirection = "normal";
+    });
+
+    diagonalButton.addEventListener('mouseenter', () => {
+      // Reverse the diagonal animation direction
+      diagonalButton.style.animationDirection = "reverse";
+    });
+
+    diagonalButton.addEventListener('mouseleave', () => {
+      // Reset the diagonal animation direction
+      diagonalButton.style.animationDirection = "normal";
+    });
+  </script>
+</body>
+</html>

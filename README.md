@@ -62,6 +62,3 @@ We encourage you to engage with the IA-G community:
 The IA-G repository is meant for fun and educational purposes. The code snippets and projects shared here may not be suitable for production use and should be used with caution.
 
 Let's explore the fascinating world of programming together and create a collection of interesting and fun code snippets in various programming languages! Happy coding! 🚀✨
-```
-
-This updated README.md now includes a section requesting users to review the CONTRIBUTING.md and CODE_OF_CONDUCT.md files before contributing.

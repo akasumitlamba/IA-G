@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Location on Map</title>
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Location on Map</h1>
+    <div id="map"></div>
+
+    <script>
+        // Check if the browser supports geolocation
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                // Get the user's latitude and longitude
+                var lat = position.coords.latitude;
+                var lon = position.coords.longitude;
+
+                // Create a map with Leaflet
+                var map = L.map('map').setView([lat, lon], 13);
+
+                // Add a tile layer for the map (you can use other tilesets as well)
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+
+                // Add a marker at the user's location
+                L.marker([lat, lon]).addTo(map)
+                    .bindPopup('Your Location').openPopup();
+            });
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+    </script>
+    
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Camera Feed</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        video {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <video id="camera-feed" autoplay playsinline></video>
+
+    <script>
+        // Check if the browser supports getUserMedia
+        if ("mediaDevices" in navigator && "getUserMedia" in navigator.mediaDevices) {
+            // Request access to the user's camera
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    var videoElement = document.getElementById("camera-feed");
+                    videoElement.srcObject = stream;
+                })
+                .catch(function (error) {
+                    console.error("Error accessing the camera: " + error);
+                });
+        } else {
+            alert("getUserMedia is not supported by your browser.");
+        }
+    </script>
+</body>
+</html>

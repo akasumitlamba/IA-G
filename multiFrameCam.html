@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Camera Feed</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: grid;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <video id="camera-feed-1" autoplay playsinline></video>
+    <video id="camera-feed-2" autoplay playsinline></video>
+    <video id="camera-feed-3" autoplay playsinline></video>
+    <video id="camera-feed-4" autoplay playsinline></video>
+    <video id="camera-feed-5" autoplay playsinline></video>
+    <video id="camera-feed-6" autoplay playsinline></video>
+    <video id="camera-feed-7" autoplay playsinline></video>
+    <video id="camera-feed-8" autoplay playsinline></video>
+    <video id="camera-feed-9" autoplay playsinline></video>
+    <video id="camera-feed-10" autoplay playsinline></video>
+    <video id="camera-feed-11" autoplay playsinline></video>
+    <video id="camera-feed-12" autoplay playsinline></video>
+
+    <script>
+        // Check if the browser supports getUserMedia
+        if ("mediaDevices" in navigator && "getUserMedia" in navigator.mediaDevices) {
+            // Request access to the user's camera
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    var videoElements = [
+                        document.getElementById("camera-feed-1"),
+                        document.getElementById("camera-feed-2"),
+                        document.getElementById("camera-feed-3"),
+                        document.getElementById("camera-feed-4"),
+                        document.getElementById("camera-feed-5"),
+                        document.getElementById("camera-feed-6"),
+                        document.getElementById("camera-feed-7"),
+                        document.getElementById("camera-feed-8"),
+                        document.getElementById("camera-feed-9"),
+                        document.getElementById("camera-feed-10"),
+                        document.getElementById("camera-feed-11"),
+                        document.getElementById("camera-feed-12")
+                    ];
+
+                    for (var i = 0; i < videoElements.length; i++) {
+                        videoElements[i].srcObject = stream;
+                    }
+                })
+                .catch(function (error) {
+                    console.error("Error accessing the camera: " + error);
+                });
+        } else {
+            alert("getUserMedia is not supported by your browser.");
+        }
+    </script>
+</body>
+</html>
