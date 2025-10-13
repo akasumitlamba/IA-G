@@ -1,3 +1,9 @@
+"""
+to import in project
+from cleaning_pipeline import DataCleaningPipeline
+clean_df, report = DataCleaningPipeline().run_full_pipeline(df)
+"""
+
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler, MinMaxScaler, RobustScaler
